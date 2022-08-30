@@ -33,26 +33,28 @@ package body Power_Models_Utils is
     end;
     
     procedure Update_Power_Models_File is
-        -- Command to download file from URL using curl
-        Command    : String          := "curl -o /etc/powerjoular/powerjoular_models.json https://gitlab.com/joular/powerjoular/-/raw/main/powermodels/powerjoular_models.json";
-        Args       : Argument_List_Access;
-        Status     : aliased Integer;
+        --  -- Command to download file from URL using curl
+        --  Command    : String          := "curl -o /etc/powerjoular/powerjoular_models.json https://gitlab.com/joular/powerjoular/-/raw/main/powermodels/powerjoular_models.json";
+        --  Args       : Argument_List_Access;
+        --  Status     : aliased Integer;
     begin
-        Args := Argument_String_To_List (Command);
-        declare
-            Response : String :=
-              Get_Command_Output
-                (Command   => Args (Args'First).all,
-                 Arguments => Args (Args'First + 1 .. Args'Last),
-                 Input     => "",
-                 Status    => Status'Access);
-        begin
-            Free (Args);
-        end;
-    exception
-        when others =>
-            Put_Line ("Error accessing URL or writing to file");
-            OS_Exit (0);
+        Put_Line ("Command disabled.");
+        OS_Exit (0);
+    --      Args := Argument_String_To_List (Command);
+    --      declare
+    --          Response : String :=
+    --            Get_Command_Output
+    --              (Command   => Args (Args'First).all,
+    --               Arguments => Args (Args'First + 1 .. Args'Last),
+    --               Input     => "",
+    --               Status    => Status'Access);
+    --      begin
+    --          Free (Args);
+    --      end;
+    --  exception
+    --      when others =>
+    --          Put_Line ("Error accessing URL or writing to file");
+    --          OS_Exit (0);
     end;
     
 end Power_Models_Utils;

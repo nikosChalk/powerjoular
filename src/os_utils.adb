@@ -27,7 +27,7 @@ package body OS_Utils is
     function Check_Raspberry_Pi_Supported_System (Platform_Name : in String) return Boolean is
     begin
         -- For now only one Raspberr Pi model is supported
-        return Platform_Name = "rbp4001.0-64" or else Platform_Name = "rbp4b1.2" or else Platform_Name = "rbp4b1.2-64" or else Platform_Name = "rbp4b1.1" or else Platform_Name = "rbp4b1.1-64" or else Platform_Name = "rbp4b1.2" or else Platform_Name = "rbp3b+1.3" or else Platform_Name = "rbp3b1.2" or else Platform_Name = "rbp2b1.1" or else Platform_Name = "rbp1b+1.2" or else Platform_Name = "rbp1b2" or else Platform_Name = "rbpzw1.1";
+        return Platform_Name = "rbp4001.0-64" or else Platform_Name = "rbp4b1.4" or else Platform_Name = "rbp4b1.4-64" or else Platform_Name = "rbp4b1.2" or else Platform_Name = "rbp4b1.2-64" or else Platform_Name = "rbp4b1.1" or else Platform_Name = "rbp4b1.1-64" or else Platform_Name = "rbp4b1.2" or else Platform_Name = "rbp3b+1.3" or else Platform_Name = "rbp3b1.2" or else Platform_Name = "rbp2b1.1" or else Platform_Name = "rbp1b+1.2" or else Platform_Name = "rbp1b2" or else Platform_Name = "rbpzw1.1";
     end;
 
     -- Get architecture name (uname -m)
@@ -71,6 +71,15 @@ package body OS_Utils is
             if (Index_Search > 0) then
                 if (Architecture_Name = "aarch64") then
                     return "rbp4001.0-64";
+                end if;
+            end if;
+
+            Index_Search := Index (To_String (Line_String), "Raspberry Pi 4 Model B Rev 1.4");
+            if (Index_Search > 0) then
+                if (Architecture_Name = "aarch64") then
+                    return "rbp4b1.4-64";
+                else
+                    return "rbp4b1.4";
                 end if;
             end if;
 

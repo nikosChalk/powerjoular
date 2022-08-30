@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 # Go back to main directory
 cd ..
 

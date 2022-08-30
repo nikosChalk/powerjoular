@@ -36,7 +36,7 @@ package body Help_Info is
         Put_Line (HT & "-f filename: save monitoring data to the given filename path");
         Put_Line (HT & "-o filename: save only last monitoring data to the given filename path (file overwritten with only latest power measures)");
         Put_Line (HT & "-t: print data to the terminal");
-        Put_Line (HT & "-u: update Raspberry Pi power models from the internet (saves to /etc/powerjoular/powerjoular_models.json). Requires root/sudo");
+        Put_Line (HT & "-u: update Raspberry Pi power models from the internet (saves to /etc/powerjoular/powerjoular_models.json). Requires root/sudo (COMMAND DISABLED)");
         Put_Line (HT & "-l: use linear regression models (less accurate than the default polynomial models) for Raspberry Pi energy models");
         Put_Line ("You can mix options, i.e., powerjoular -tp 144 --> monitor PID 144 and will print to the terminal");
         Put_Line ("--------------------------");
