@@ -112,6 +112,42 @@ package body Raspberry_Pi_CPU_Formula is
                 end if;
             end if;
 
+            -- Same as rbp4b1.2
+            if (Platform_Name = "rbp3bplus1.3") then
+                if (Algorithm_Name = "linear") then
+                    return (3.484191712285443 * CPU_Utilization) + 2.243353676359355;
+                elsif (Algorithm_Name = "polynomial") then
+                    return 2.58542069543335 + (12.335449 * (CPU_Utilization ** 1)) +
+                        (-248.010554 * (CPU_Utilization ** 2)) +
+                            (2379.832320 * (CPU_Utilization ** 3)) +
+                                (-11962.419149 * (CPU_Utilization ** 4)) +
+                                    (34444.268647 * (CPU_Utilization ** 5)) +
+                                        (-58455.266502 * (CPU_Utilization ** 6)) +
+                                            (57698.685016 * (CPU_Utilization ** 7)) +
+                                                (-30618.557703 * (CPU_Utilization ** 8)) +
+                                                    (6752.265368 * (CPU_Utilization ** 9));
+                else
+                    return 0.0;
+                end if;
+            end if;
+
+            -- Same as rbp4b1.2-64
+            if (Platform_Name = "rbp3bplus1.3-64") then
+                if (Algorithm_Name = "linear") then
+                    return (4.534426720546654 * CPU_Utilization) + 2.2856926184722672;
+                elsif (Algorithm_Name = "polynomial") then
+                    return 3.039940056604439 + (-3.074225 * (CPU_Utilization ** 1)) +
+                        (47.753114 * (CPU_Utilization ** 2)) +
+                            (-271.974551 * (CPU_Utilization ** 3)) +
+                                (879.966571 * (CPU_Utilization ** 4)) +
+                                    (-1437.466442 * (CPU_Utilization ** 5)) +
+                                        (1133.325791 * (CPU_Utilization ** 6)) +
+                                            (-345.134888 * (CPU_Utilization ** 7));
+                else
+                    return 0.0;
+                end if;
+            end if;
+
             if (Platform_Name = "rbp4b1.2") then
                 if (Algorithm_Name = "linear") then
                     return (3.484191712285443 * CPU_Utilization) + 2.243353676359355;
